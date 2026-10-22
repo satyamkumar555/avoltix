@@ -1,0 +1,23 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    function isAdmin() { return request.auth != null && request.auth.token.admin == true; }
+    function okImage(maxBytes) { return request.resource.size < maxBytes && request.resource.contentType.matches('image/(jpeg|png|webp)'); }
+    match /products/{sku}/{file} {
+      allow read: if true;
+      allow create, update: if isAdmin() && okImage(2 * 1024 * 1024);
+      allow delete: if isAdmin();
+    }
+    match /banners/{file} {
+      allow read: if true;
+      allow create, update: if isAdmin() && okImage(3 * 1024 * 1024);
+      allow delete: if isAdmin();
+    }
+    match /categories/{file} {
+      allow read: if true;
+      allow create, update: if isAdmin() && okImage(2 * 1024 * 1024);
+      allow delete: if isAdmin();
+    }
+    match /{allPaths=**} { allow read, write: if false; }
+  }
+}
