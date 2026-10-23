@@ -1,13 +1,2 @@
-# Firebase App Hosting config (untested). Add your real values, then connect the repo in the Firebase console.
 runConfig:
-  cpu: 1
-  memoryMiB: 512
   maxInstances: 2
-env:
-  - { variable: NEXT_PUBLIC_SITE_URL, value: "https://YOUR-DOMAIN", availability: [BUILD, RUNTIME] }
-  - { variable: NEXT_PUBLIC_FIREBASE_API_KEY, value: "", availability: [BUILD, RUNTIME] }
-  - { variable: NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN, value: "", availability: [BUILD, RUNTIME] }
-  - { variable: NEXT_PUBLIC_FIREBASE_PROJECT_ID, value: "", availability: [BUILD, RUNTIME] }
-  - { variable: NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET, value: "", availability: [BUILD, RUNTIME] }
-  - { variable: NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID, value: "", availability: [BUILD, RUNTIME] }
-  - { variable: NEXT_PUBLIC_FIREBASE_APP_ID, value: "", availability: [BUILD, RUNTIME] }
